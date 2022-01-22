@@ -11,6 +11,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MediatR;
+using System.Reflection;
+using CustomerService.Api.Service.v1.Queries;
+using CustomerService.Domain;
 
 namespace CustomerService.Api
 {
@@ -32,6 +36,10 @@ namespace CustomerService.Api
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "CustomerService.Api", Version = "v1" });
             });
+
+            services.AddMediatR(Assembly.GetExecutingAssembly());
+            services.AddTransient<IRequestHandler<GetCustomersQuery, List<Customer>>, GetCustomersQueryHandler>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
