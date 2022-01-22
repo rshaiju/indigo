@@ -8,6 +8,12 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
 COPY ["CustomerService.Api/CustomerService.Api.csproj", "CustomerService.Api/"]
+COPY ["CustomerService.Domain/CustomerService.Domain.csproj", "CustomerService.Domain/"]
+COPY ["CustomerService.Api.Service/CustomerService.Api.Service.csproj", "CustomerService.Api.Service/"]
+COPY ["*.props", "./"]
+
+RUN dotnet restore "CustomerService.Domain/CustomerService.Domain.csproj"
+RUN dotnet restore "CustomerService.Api.Service/CustomerService.Api.Service.csproj"
 RUN dotnet restore "CustomerService.Api/CustomerService.Api.csproj"
 COPY . .
 WORKDIR "/src/CustomerService.Api"
