@@ -11,6 +11,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MediatR;
+using System.Reflection;
+using OrderService.Api.Service.v1.Queries;
+using OrderService.Domain;
 
 namespace OrderService.Api
 {
@@ -32,6 +36,8 @@ namespace OrderService.Api
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "OrderService.Api", Version = "v1" });
             });
+            services.AddMediatR(Assembly.GetExecutingAssembly());
+            services.AddTransient<IRequestHandler<OrdersQuery, List<Order>>, OrdersQueryHandler>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
