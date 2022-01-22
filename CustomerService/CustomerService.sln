@@ -9,13 +9,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{FE
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{B6C487A6-64D4-4E8A-9A1B-DE13E0A292C3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerService.Api.Tests", "CustomerService.Api.Tests\CustomerService.Api.Tests.csproj", "{C26F9670-66CC-4859-8104-8DC1812BC129}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomerService.Api.Tests", "CustomerService.Api.Tests\CustomerService.Api.Tests.csproj", "{C26F9670-66CC-4859-8104-8DC1812BC129}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerService.Domain", "CustomerService.Domain\CustomerService.Domain.csproj", "{602103FE-0B57-4DDD-8D17-015E9F9EDCDF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomerService.Domain", "CustomerService.Domain\CustomerService.Domain.csproj", "{602103FE-0B57-4DDD-8D17-015E9F9EDCDF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerService.Api.Service", "CustomerService.Api.Service\CustomerService.Api.Service.csproj", "{097CF638-DC41-46B1-9B36-7EB198714713}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomerService.Api.Service", "CustomerService.Api.Service\CustomerService.Api.Service.csproj", "{097CF638-DC41-46B1-9B36-7EB198714713}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerService.Api.Service.Tests", "CustomerService.Api.Service.Tests\CustomerService.Api.Service.Tests.csproj", "{94B50423-490F-446A-93EB-20C02D59D5E3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomerService.Api.Service.Tests", "CustomerService.Api.Service.Tests\CustomerService.Api.Service.Tests.csproj", "{94B50423-490F-446A-93EB-20C02D59D5E3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{446721DB-7812-4993-8E95-7A5AC556315F}"
+	ProjectSection(SolutionItems) = preProject
+		common.props = common.props
+		Directory.Build.props = Directory.Build.props
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
