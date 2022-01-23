@@ -23,6 +23,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Directory.Build.props = Directory.Build.props
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerService.Data", "CustomerService.Data\CustomerService.Data.csproj", "{4797EAAA-9FF4-406D-86B9-7EAE50542EB2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +51,10 @@ Global
 		{94B50423-490F-446A-93EB-20C02D59D5E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{94B50423-490F-446A-93EB-20C02D59D5E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{94B50423-490F-446A-93EB-20C02D59D5E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4797EAAA-9FF4-406D-86B9-7EAE50542EB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4797EAAA-9FF4-406D-86B9-7EAE50542EB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4797EAAA-9FF4-406D-86B9-7EAE50542EB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4797EAAA-9FF4-406D-86B9-7EAE50542EB2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -59,6 +65,7 @@ Global
 		{602103FE-0B57-4DDD-8D17-015E9F9EDCDF} = {FED9B060-19EB-4FBB-959C-094C3D53934E}
 		{097CF638-DC41-46B1-9B36-7EB198714713} = {FED9B060-19EB-4FBB-959C-094C3D53934E}
 		{94B50423-490F-446A-93EB-20C02D59D5E3} = {B6C487A6-64D4-4E8A-9A1B-DE13E0A292C3}
+		{4797EAAA-9FF4-406D-86B9-7EAE50542EB2} = {FED9B060-19EB-4FBB-959C-094C3D53934E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {187587A2-424B-4E66-996F-7ED37093298C}

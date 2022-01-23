@@ -10,17 +10,17 @@ using System.Threading.Tasks;
 
 namespace CustomerService.Api.Service.v1.Queries
 {
-    public class GetCustomersQueryHandler : IRequestHandler<GetCustomersQuery, List<Customer>>
+    public class GetCustomerByIdQueryHandler : IRequestHandler<GetCustomerByIdQuery, Customer>
     {
         private readonly ICustomerRepository customerRepository;
 
-        public GetCustomersQueryHandler(ICustomerRepository customerRepository)
+        public GetCustomerByIdQueryHandler(ICustomerRepository customerRepository)
         {
             this.customerRepository = customerRepository;
         }
-        public async Task<List<Customer>> Handle(GetCustomersQuery request, CancellationToken cancellationToken)
+        public async Task<Customer> Handle(GetCustomerByIdQuery request, CancellationToken cancellationToken)
         {
-            return await Task.FromResult(this.customerRepository.GetAll().ToList());
+            return await this.customerRepository.GetCustomerByIdAsync(request.Id, cancellationToken);
         }
     }
 }

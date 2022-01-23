@@ -15,6 +15,10 @@ using MediatR;
 using System.Reflection;
 using CustomerService.Api.Service.v1.Queries;
 using CustomerService.Domain;
+using CustomerService.Data;
+using Microsoft.EntityFrameworkCore;
+using CustomerService.Data.v1;
+using CustomerService.Api.Service.v1.Commands;
 
 namespace CustomerService.Api
 {
@@ -31,6 +35,7 @@ namespace CustomerService.Api
         public void ConfigureServices(IServiceCollection services)
         {
 
+            services.AddDbContext<CustomerContext>(options => options.UseInMemoryDatabase(Guid.NewGuid().ToString()));
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -39,6 +44,12 @@ namespace CustomerService.Api
 
             services.AddMediatR(Assembly.GetExecutingAssembly());
             services.AddTransient<IRequestHandler<GetCustomersQuery, List<Customer>>, GetCustomersQueryHandler>();
+            services.AddTransient<IRequestHandler<GetCustomerByIdQuery, Customer>, GetCustomerByIdQueryHandler>();
+            services.AddTransient<IRequestHandler<CustomerCreateCommand, Customer>, CustomerCreateCommandHandler>();
+            services.AddTransient<IRequestHandler<CustomerUpdateCommand, Customer>, CustomerUpdateCommandHandler>();
+            services.AddTransient<ICustomerRepository, CustomerRepository>();
+
+            services.AddAutoMapper(typeof(Startup));
 
         }
 
