@@ -36,7 +36,7 @@ stages:
           displayName: Run Tests
           inputs:
             command: test
-            arguments: --no-restore --no-build
+            arguments: --no-restore --no-build --configuration $(buildConfiguration) 
             projects: CustomerService/*.Tests/*.csproj
         - task: DotNetCoreCLI@2
           displayName: Publish Service
