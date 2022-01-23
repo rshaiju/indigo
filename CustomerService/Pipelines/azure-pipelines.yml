@@ -26,3 +26,23 @@ stages:
           inputs:
             command: restore
             projects: CustomerService/**/*.csproj
+        - task: DotNetCoreCLI@2
+          displayName: Build Service
+          inputs:
+            command: build
+            arguments: --no-restore
+            projects: CustomerService/**/*.csproj
+        - task: DotNetCoreCLI@2
+          displayName: Run Tests
+          inputs:
+            command: test
+            arguments: --no-restore --no-build
+            projects: CustomerService/*.Tests/*.csproj
+        - task: DotNetCoreCLI@2
+          displayName: Publish Service
+          inputs:
+            command: publish
+            projects: CustomerService/CustomerService.Api/CustomerService.Api.csproj
+            arguments: --configuration $(buildConfiguration) --no-restore
+
+            
