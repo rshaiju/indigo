@@ -1,0 +1,26 @@
+version: "3.6"
+services:
+  customerService:
+    container_name: customerservice
+    image: customerservice:dev
+    ports:
+    - 8080:80
+    - 40443:443
+    environment:
+    - ASPNETCORE_URLS=https://+;http://+
+    - Kestrel__Certificates__Default__Path=/app/certificates/dev-cert.pfx
+    - Kestrel__Certificates__Default__Password=Password
+    volumes:
+    - C:\Temp\Certificates:/app/certificates
+  orderService:
+    image: orderservice:dev
+    container_name: orderservice
+    ports:
+    - 8081:80
+    - 41443:443
+    environment:
+    - ASPNETCORE_URLS=https://+;http://+
+    - Kestrel__Certificates__Default__Path=/app/certificates/dev-cert.pfx
+    - Kestrel__Certificates__Default__Password=Password
+    volumes:
+    - C:\Temp\Certificates:/app/certificates
