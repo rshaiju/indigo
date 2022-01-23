@@ -7,7 +7,13 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
+COPY ["OrderService.Domain/OrderService.Domain.csproj", "OrderService.Domain/"]
+COPY ["OrderService.Api.Service/OrderService.Api.Service.csproj", "OrderService.Api.Service/"]
 COPY ["OrderService.Api/OrderService.Api.csproj", "OrderService.Api/"]
+COPY ["*.props", "./"]
+
+RUN dotnet restore "OrderService.Domain/OrderService.Domain.csproj"
+RUN dotnet restore "OrderService.Api.Service/OrderService.Api.Service.csproj"
 RUN dotnet restore "OrderService.Api/OrderService.Api.csproj"
 COPY . .
 WORKDIR "/src/OrderService.Api"
