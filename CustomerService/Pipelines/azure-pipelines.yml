@@ -1,31 +1,28 @@
 name: CustomerService
 
 trigger:
-- main
+  branches:
+    include:
+      - main
+  paths:
+    include:
+      - CustomerService/*
 
 pool:
-  vmImage: 'windows-latest'
+  vmImage: 'ubuntu-latest'
 
 variables:
-  solution: '**/*.sln'
-  buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
 
-steps:
-- task: NuGetToolInstaller@1
-
-- task: NuGetCommand@2
-  inputs:
-    restoreSolution: '$(solution)'
-
-- task: VSBuild@1
-  inputs:
-    solution: '$(solution)'
-    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
-
-- task: VSTest@2
-  inputs:
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+stages:
+  - stage: BuildStage
+    displayName: Build Stage
+    jobs:
+      - job: BuildJob
+        displayName: Build Job
+        steps:
+        - task: DotNetCoreCLI@2
+          displayName: Restore Packages
+          inputs:
+            command: restore
+            projects: CustomerService/**/*.csproj
