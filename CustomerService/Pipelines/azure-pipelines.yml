@@ -1,0 +1,49 @@
+name: CustomerService
+
+trigger:
+  branches:
+    include:
+      - main
+  paths:
+    include:
+      - CustomerService/*
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  buildConfiguration: 'Release'
+
+stages:
+  - stage: BuildStage
+    displayName: Build Service
+    jobs:
+      - job: BuildJob
+        displayName: Build CustomerService
+        steps:
+        - task: DotNetCoreCLI@2
+          displayName: Restore Packages
+          inputs:
+            command: restore
+            projects: CustomerService/**/*.csproj
+        - task: DotNetCoreCLI@2
+          displayName: Build Service
+          inputs:
+            command: build
+            arguments: --no-restore
+            projects: CustomerService/**/*.csproj
+        - task: DotNetCoreCLI@2
+          displayName: Run Tests
+          inputs:
+            command: test
+            arguments: --no-restore --no-build
+            projects: CustomerService/*.Tests/*.csproj
+        - task: DotNetCoreCLI@2
+          displayName: Publish Service
+          inputs:
+            command: publish
+            projects: CustomerService/CustomerService.Api/CustomerService.Api.csproj
+            arguments: --configuration $(buildConfiguration) --no-restore
+            publishWebProjects: false
+
+            
