@@ -9,10 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="v1\Commands\" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <ProjectReference Include="..\OrderService.Data\OrderService.Data.csproj" />
     <ProjectReference Include="..\OrderService.Domain\OrderService.Domain.csproj" />
   </ItemGroup>
 

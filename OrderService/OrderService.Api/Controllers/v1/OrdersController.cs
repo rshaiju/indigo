@@ -25,11 +25,11 @@ namespace OrderService.Api.Controllers.v1
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [HttpGet]
-        public async Task<ActionResult<List<Order>>> GetOrders()
+        public async Task<ActionResult<Order>> GetOrderById(long id)
         {
             try
             {
-                return await this.mediator.Send(new OrdersQuery());
+                return await this.mediator.Send(new GetOrderByIdQuery { Id=id });
             }
             catch (Exception ex)
             {

@@ -6,9 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OrderService.Api.Service.v1.Queries
+namespace OrderService.Api.Service.v1.Commands
 {
-    public class OrdersQuery: IRequest<List<Order>>
+    public class PayOrderCommand:IRequest<Order>
     {
+        public Order Order { get; set; }
     }
 }
