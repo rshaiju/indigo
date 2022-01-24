@@ -9,11 +9,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{D3
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{9CB08DBA-A1FB-4430-A8BE-17EB0D401048}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderService.Domain", "OrderService.Domain\OrderService.Domain.csproj", "{4E1256C4-4AFB-42FA-86F6-DC84D2F7B66C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderService.Domain", "OrderService.Domain\OrderService.Domain.csproj", "{4E1256C4-4AFB-42FA-86F6-DC84D2F7B66C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderService.Api.Tests", "OrderService.Api.Tests\OrderService.Api.Tests.csproj", "{317EE5B4-81A6-4A0D-889A-32C796D5E776}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderService.Api.Tests", "OrderService.Api.Tests\OrderService.Api.Tests.csproj", "{317EE5B4-81A6-4A0D-889A-32C796D5E776}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderService.Api.Service", "OrderService.Api.Service\OrderService.Api.Service.csproj", "{DCCFFC70-AA3E-47CA-A542-B9B4A8ED0F55}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderService.Api.Service", "OrderService.Api.Service\OrderService.Api.Service.csproj", "{DCCFFC70-AA3E-47CA-A542-B9B4A8ED0F55}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{13C05987-4016-4DF4-9E01-B4D5F8651892}"
 	ProjectSection(SolutionItems) = preProject
@@ -21,7 +21,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Directory.Build.props = Directory.Build.props
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderService.Api.Service.Tests", "OrderService.Api.Service.Tests\OrderService.Api.Service.Tests.csproj", "{68F988E0-9126-4E89-9136-7A93CD7268B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderService.Api.Service.Tests", "OrderService.Api.Service.Tests\OrderService.Api.Service.Tests.csproj", "{68F988E0-9126-4E89-9136-7A93CD7268B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderService.Data", "OrderService.Data\OrderService.Data.csproj", "{D3587948-94CC-4D95-8C5B-89134642529A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,6 +51,10 @@ Global
 		{68F988E0-9126-4E89-9136-7A93CD7268B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{68F988E0-9126-4E89-9136-7A93CD7268B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{68F988E0-9126-4E89-9136-7A93CD7268B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3587948-94CC-4D95-8C5B-89134642529A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3587948-94CC-4D95-8C5B-89134642529A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3587948-94CC-4D95-8C5B-89134642529A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3587948-94CC-4D95-8C5B-89134642529A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -59,6 +65,7 @@ Global
 		{317EE5B4-81A6-4A0D-889A-32C796D5E776} = {9CB08DBA-A1FB-4430-A8BE-17EB0D401048}
 		{DCCFFC70-AA3E-47CA-A542-B9B4A8ED0F55} = {D3E388B1-A93B-47FC-BB95-5D614B294543}
 		{68F988E0-9126-4E89-9136-7A93CD7268B3} = {9CB08DBA-A1FB-4430-A8BE-17EB0D401048}
+		{D3587948-94CC-4D95-8C5B-89134642529A} = {D3E388B1-A93B-47FC-BB95-5D614B294543}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5FE6A9EC-77AC-41DF-86FD-24AC9CFCA8BA}

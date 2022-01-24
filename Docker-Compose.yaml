@@ -2,7 +2,7 @@ version: "3.6"
 services:
   customerService:
     container_name: customerservice
-    image: customerservice:dev
+    image: shaijuvr/customerservice:latest
     ports:
     - 8080:80
     - 40443:443
@@ -12,8 +12,10 @@ services:
     - Kestrel__Certificates__Default__Password=Password
     volumes:
     - C:\Temp\Certificates:/app/certificates
+    networks:
+    - shaijus
   orderService:
-    image: orderservice:dev
+    image: shaijuvr/orderservice:latest
     container_name: orderservice
     ports:
     - 8081:80
@@ -24,3 +26,8 @@ services:
     - Kestrel__Certificates__Default__Password=Password
     volumes:
     - C:\Temp\Certificates:/app/certificates
+    networks:
+    - shaijus
+networks:
+  shaijus:
+    driver: bridge
