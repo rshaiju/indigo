@@ -20,7 +20,7 @@ namespace OrderService.Data.v1
         {
             try
             {
-                return await this.orderContext.Orders.FindAsync(id, cancellationToken);
+                return await this.orderContext.Orders.SingleOrDefaultAsync(o => o.Id == id, cancellationToken);
             }
             catch (Exception ex)
             {

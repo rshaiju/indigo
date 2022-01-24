@@ -10,15 +10,15 @@ using System.Threading.Tasks;
 
 namespace OrderService.Api.Service.v1.Queries
 {
-    public class GetOrdersByCustomerQueryHandler : IRequestHandler<GetOrdersByCustomerQuery, List<Order>>
+    public class GetOrdersByCustomerIdQueryHandler : IRequestHandler<GetOrdersByCustomerIdQuery, List<Order>>
     {
         private readonly IOrderRepository orderRepository;
 
-        public GetOrdersByCustomerQueryHandler(IOrderRepository orderRepository)
+        public GetOrdersByCustomerIdQueryHandler(IOrderRepository orderRepository)
         {
             this.orderRepository = orderRepository;
         }
-        public async Task<List<Order>> Handle(GetOrdersByCustomerQuery request, CancellationToken cancellationToken)
+        public async Task<List<Order>> Handle(GetOrdersByCustomerIdQuery request, CancellationToken cancellationToken)
         {
             return await this.orderRepository.GetOrdersByCustomerIdAsync(request.CustomerId, cancellationToken);
         }

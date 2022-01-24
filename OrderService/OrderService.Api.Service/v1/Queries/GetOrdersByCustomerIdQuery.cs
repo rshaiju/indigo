@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace OrderService.Api.Service.v1.Queries
 {
-    public class GetOrdersByCustomerQuery: IRequest<List<Order>>
+    public class GetOrdersByCustomerIdQuery: IRequest<List<Order>>
     {
         public long CustomerId { get; set; }
 

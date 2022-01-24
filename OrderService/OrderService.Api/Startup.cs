@@ -15,6 +15,10 @@ using MediatR;
 using System.Reflection;
 using OrderService.Api.Service.v1.Queries;
 using OrderService.Domain;
+using OrderService.Data;
+using Microsoft.EntityFrameworkCore;
+using OrderService.Api.Service.v1.Commands;
+using OrderService.Data.v1;
 
 namespace OrderService.Api
 {
@@ -30,14 +34,27 @@ namespace OrderService.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<OrderContext>(options => options.UseInMemoryDatabase(Guid.NewGuid().ToString()));
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "OrderService.Api", Version = "v1" });
             });
+
             services.AddMediatR(Assembly.GetExecutingAssembly());
+
+            services.AddTransient<IRequestHandler<CreateOrderCommand, Order>, CreateOrderCommandHandler>();
+            services.AddTransient<IRequestHandler<PayOrderCommand, Order>,PayOrderCommandHandler>();
+            services.AddTransient<IRequestHandler<UpdateOrdersCommand>, UpdateOrdersCommandHandler>();
+
             services.AddTransient<IRequestHandler<GetOrderByIdQuery, Order>, GetOrderByIdQueryHandler>();
+            services.AddTransient<IRequestHandler<GetOrdersByCustomerIdQuery, List<Order>>, GetOrdersByCustomerIdQueryHandler>();
+            services.AddTransient<IRequestHandler<GetPaidOrdersQuery, List<Order>>, GetPaidOrdersQueryHandler>();
+
+            services.AddAutoMapper(typeof(Startup));
+
+            services.AddTransient<IOrderRepository, OrderRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
