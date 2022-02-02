@@ -1,4 +1,4 @@
-name: CustomerService
+name: OrderService
 
 trigger:
   branches:
@@ -6,7 +6,7 @@ trigger:
       - main
   paths:
     include:
-      - CustomerService/*
+      - OrderService/*
 
 pool:
   name: my-agents
@@ -21,7 +21,7 @@ stages:
     displayName: Build Service
     jobs:
       - job: BuildJob
-        displayName: Build CustomerService
+        displayName: Build OrderService
         steps:
         - script: |
             echo echo '##vso[build.updatebuildnumber]'$(buildVersion).$(buildRevision)
@@ -31,24 +31,24 @@ stages:
           displayName: Restore Packages
           inputs:
             command: restore
-            projects: CustomerService/**/*.csproj
+            projects: OrderService/**/*.csproj
         - task: DotNetCoreCLI@2
           displayName: Build Service
           inputs:
             command: build
             arguments: --no-restore
-            projects: CustomerService/**/*.csproj
+            projects: OrderService/**/*.csproj
         - task: DotNetCoreCLI@2
           displayName: Run Tests
           inputs:
             command: test
             arguments: --no-restore --no-build
-            projects: CustomerService/*.Tests/*.csproj
+            projects: OrderService/*.Tests/*.csproj
         - task: DotNetCoreCLI@2
           displayName: Publish Service
           inputs:
             command: publish
-            projects: CustomerService/CustomerService.Api/CustomerService.Api.csproj
+            projects: OrderService/OrderService.Api/OrderService.Api.csproj
             arguments: --configuration $(buildConfiguration) --no-restore
             publishWebProjects: false
             zipAfterPublish: false
@@ -56,10 +56,10 @@ stages:
         - task: Docker@2
           displayName: Build And Push Docker Image
           inputs:
-            buildContext: CustomerService/CustomerService.Api
-            Dockerfile: CustomerService/CustomerService.Api/Dockerfile
+            buildContext: OrderService/OrderService.Api
+            Dockerfile: OrderService/OrderService.Api/Dockerfile
             containerRegistry: 'shaijusregistry'
-            repository: customerservice
+            repository: shaijusregistry.azurecr.io/orderservice
             tags: |
               $(Build.BuildNumber)
               latest

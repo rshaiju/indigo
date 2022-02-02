@@ -35,7 +35,7 @@ namespace CustomerService.Api
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddDbContext<CustomerContext>(options => options.UseInMemoryDatabase(Guid.NewGuid().ToString()));
+            services.AddDbContext<CustomerContext>(options => options.UseInMemoryDatabase(databaseName:"CustomerServiceDB"));
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
